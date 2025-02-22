@@ -1,0 +1,11 @@
+{
+    "name": "com.white-arrow.data-saving.firestore",
+    "version": "1.0.0",
+    "displayName": "DataSaving Firestore Support",
+    "description": "Extension providing Firebase Firestore support for DataSaving.",
+    "licensesUrl": "https://github.com/CliffCalist/DataSaving-Firestore-Support/blob/65b024091c69651de3f13d4a94faa672b68c0ec1/LICENSE",
+    "author": {
+        "name": "White Arrow",
+        "email": "cliffstersprog@gmail.com"
+    }
+}
