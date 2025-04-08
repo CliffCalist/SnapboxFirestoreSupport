@@ -1,8 +1,8 @@
 {
-    "name": "com.white-arrow.data-saving.firestore",
+    "name": "com.white-arrow.snapbox.firestore-support",
     "version": "1.0.0",
-    "displayName": "DataSaving Firestore Support",
-    "description": "Extension providing Firebase Firestore support for DataSaving.",
+    "displayName": "Snapbox Firestore Support",
+    "description": "Extension providing Firebase Firestore support for Snapbox.",
     "licensesUrl": "https://github.com/CliffCalist/DataSaving-Firestore-Support/blob/65b024091c69651de3f13d4a94faa672b68c0ec1/LICENSE",
     "author": {
         "name": "White Arrow",

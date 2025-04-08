@@ -1,2 +1,2 @@
-# DataSaving Firestore Support
-Extension providing Firebase Firestore support for DataSaving.
+# Snapbox Firestore Support
+Extension providing Firebase Firestore support for Snapbox.

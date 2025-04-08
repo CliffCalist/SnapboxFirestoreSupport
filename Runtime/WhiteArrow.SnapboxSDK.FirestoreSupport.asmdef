@@ -1,6 +1,6 @@
 {
-    "name": "WhiteArrow.DataSaving.Firestore",
-    "rootNamespace": "",
+    "name": "WhiteArrow.SnapboxSDK.FirestoreSupport",
+    "rootNamespace": "WhiteArrow.SnapboxSDK.FirestoreSupport",
     "references": [
         "GUID:4f6318e562ba64ed4b60c64ec24e7f59"
     ],
