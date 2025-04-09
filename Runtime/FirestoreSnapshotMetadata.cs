@@ -6,7 +6,6 @@ namespace WhiteArrow.SnapboxSDK.FirestoreSupport
     public class FirestoreSnapshotMetadata : ISnapshotMetadata
     {
         public string SnapshotName { get; private set; }
-        public Type SnapshotType { get; private set; }
         public FirestoreSnapshotConverter Converter { get; private set; }
 
         public object FolderPath { get; private set; }
