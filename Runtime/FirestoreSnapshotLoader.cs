@@ -1,7 +1,5 @@
 using System;
-using System.IO;
 using System.Threading.Tasks;
-using Firebase.Firestore;
 
 namespace WhiteArrow.SnapboxSDK.FirestoreSupport
 {
@@ -18,19 +16,7 @@ namespace WhiteArrow.SnapboxSDK.FirestoreSupport
                 var snapshot = await docRef.GetSnapshotAsync();
 
                 if (snapshot.Exists)
-                {
-                    var convertToMethod = typeof(DocumentSnapshot).GetMethod("ConvertTo", new Type[] { });
-
-                    if (convertToMethod == null)
-                        throw new InvalidOperationException("ConvertTo method not found.");
-
-                    var data = convertToMethod.MakeGenericMethod(metadata.SnapshotType).Invoke(snapshot, null);
-
-                    if (data == null)
-                        throw new InvalidOperationException("Failed to deserialize the snapshot from Firestore.");
-
-                    return data;
-                }
+                    return castedMetadata.Converter.ConvertFromSnapshot(snapshot);
                 else return null;
             }
             catch (Exception ex)
