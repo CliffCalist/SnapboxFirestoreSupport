@@ -31,7 +31,7 @@ namespace WhiteArrow.SnapboxSDK.FirestoreSupport
 
                     return data;
                 }
-                else throw new FileNotFoundException($"No snapshot found at {castedMetadata.CastedFolderPath} in Firestore.");
+                else return null;
             }
             catch (Exception ex)
             {
