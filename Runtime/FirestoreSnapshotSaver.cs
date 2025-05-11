@@ -5,6 +5,11 @@ namespace WhiteArrow.SnapboxSDK.FirestoreSupport
 {
     public class FirestoreSnapshotSaver : ISnapshotSaver
     {
+        public void Save(ISnapshotMetadata metadata, object data)
+        {
+            throw new NotSupportedException("Firestore only supports asynchronous saving. Use SaveAsync instead.");
+        }
+
         public async Task SaveAsync(ISnapshotMetadata metadata, object data)
         {
             try
@@ -19,6 +24,13 @@ namespace WhiteArrow.SnapboxSDK.FirestoreSupport
             {
                 throw new InvalidOperationException($"Error while saving snapshot to Firestore: {ex.Message}", ex);
             }
+        }
+
+
+
+        public void Delete(ISnapshotMetadata metadata)
+        {
+            throw new NotSupportedException("Firestore only supports asynchronous deletion. Use DeleteAsync instead.");
         }
 
         public async Task DeleteAsync(ISnapshotMetadata metadata)
