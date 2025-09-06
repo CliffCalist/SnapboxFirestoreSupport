@@ -1,6 +1,6 @@
 using Firebase.Firestore;
 
-namespace WhiteArrow.SnapboxSDK.FirestoreSupport
+namespace WhiteArrow.Snapbox.FirestoreSupport
 {
     public abstract class FirestoreSnapshotConverter
     {

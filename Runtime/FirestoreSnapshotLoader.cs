@@ -1,7 +1,7 @@
 using System;
 using System.Threading.Tasks;
 
-namespace WhiteArrow.SnapboxSDK.FirestoreSupport
+namespace WhiteArrow.Snapbox.FirestoreSupport
 {
     public class FirestoreSnapshotLoader : ISnapshotLoader
     {

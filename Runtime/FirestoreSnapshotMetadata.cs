@@ -1,7 +1,7 @@
 using System;
 using Firebase.Firestore;
 
-namespace WhiteArrow.SnapboxSDK.FirestoreSupport
+namespace WhiteArrow.Snapbox.FirestoreSupport
 {
     public class FirestoreSnapshotMetadata : ISnapshotMetadata
     {
