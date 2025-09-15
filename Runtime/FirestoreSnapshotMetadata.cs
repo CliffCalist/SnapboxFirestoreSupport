@@ -23,11 +23,7 @@ namespace WhiteArrow.Snapbox.FirestoreSupport
 
             SnapshotName = dataName;
             SnapshotType = snapshotType ?? throw new ArgumentNullException(nameof(snapshotType));
-
-            if (folderPath == null)
-                throw new ArgumentNullException("The provided path is null or empty.", nameof(folderPath));
-
-            CastedFolderPath = folderPath;
+            CastedFolderPath = folderPath ?? throw new ArgumentNullException(nameof(folderPath));
         }
     }
 }
