@@ -1,5 +1,7 @@
 using System;
+using System.Reflection;
 using System.Threading.Tasks;
+using Firebase.Firestore;
 
 namespace WhiteArrow.Snapbox.FirestoreSupport
 {
@@ -15,9 +17,23 @@ namespace WhiteArrow.Snapbox.FirestoreSupport
                 var docRef = castedMetadata.CastedFolderPath.Document(castedMetadata.SnapshotName);
                 var snapshot = await docRef.GetSnapshotAsync();
 
-                if (snapshot.Exists)
-                    return castedMetadata.Converter.ConvertFromSnapshot(snapshot);
-                else return null;
+                if (!snapshot.Exists)
+                    return null;
+
+                var method = typeof(DocumentSnapshot)
+                    .GetMethod(
+                        "ConvertTo",
+                        BindingFlags.Public | BindingFlags.Instance, null,
+                        Type.EmptyTypes, null
+                    );
+
+                if (method == null)
+                    throw new InvalidOperationException("Firestore API changed: ConvertTo<T>() method not found.");
+
+                var genericMethod = method.MakeGenericMethod(castedMetadata.SnapshotType);
+                var result = genericMethod.Invoke(snapshot, null);
+
+                return result;
             }
             catch (Exception ex)
             {
