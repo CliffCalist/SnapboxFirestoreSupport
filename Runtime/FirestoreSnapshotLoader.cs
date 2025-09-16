@@ -23,15 +23,17 @@ namespace WhiteArrow.Snapbox.FirestoreSupport
                 var method = typeof(DocumentSnapshot)
                     .GetMethod(
                         "ConvertTo",
-                        BindingFlags.Public | BindingFlags.Instance, null,
-                        Type.EmptyTypes, null
+                        BindingFlags.Public | BindingFlags.Instance,
+                        null,
+                        new[] { typeof(ServerTimestampBehavior) },
+                        null
                     );
 
                 if (method == null)
                     throw new InvalidOperationException("Firestore API changed: ConvertTo<T>() method not found.");
 
                 var genericMethod = method.MakeGenericMethod(castedMetadata.SnapshotType);
-                var result = genericMethod.Invoke(snapshot, null);
+                var result = genericMethod.Invoke(snapshot, new object[] { ServerTimestampBehavior.None });
 
                 return result;
             }
